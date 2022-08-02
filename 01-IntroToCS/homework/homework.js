@@ -5,7 +5,7 @@ function BinarioADecimal(num) {
   var sum = 0;
 
     for (var i = 0; i < num.length; i++) {
-       sum += num[i] * 2 ** (num.length - 1 - i);
+       sum += 2 ** (num.length - 1 - i) * num[i];
     }
     return sum;
 }
