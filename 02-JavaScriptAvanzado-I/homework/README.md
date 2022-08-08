@@ -24,14 +24,14 @@ var c = function(a, b, c) {
   f(a,b,c); // 8
   console.log(b); // 10
 }
-c(8,9,10);  // 10, 8 , 8, 8, 10
+c(8,9,10);  // 10, 8 , 8, 9, 10
 console.log(b); // 10
 console.log(x); // 1
 ```
 
 ```javascript
 console.log(bar); // undefined
-console.log(baz); // 2
+console.log(baz); // ERROR
 foo(); // Hola!
 function foo() { console.log('Hola!'); }
 var bar = 1;
@@ -43,7 +43,7 @@ var instructor = "Tony";
 if(true) {
     var instructor = "Franco";
 }
-console.log(instructor); // Franco
+console.log(instructor); // Franco xq no se abre otro contexto, solo un bloque y pisa valor
 ```
 
 ```javascript
@@ -54,13 +54,15 @@ console.log(instructor); // Tony
       var instructor = "Franco";
       console.log(instructor);
    }
-})();
+})(); //funcion autoinvocada, para que se ejucute luego
 console.log(instructor); // Tony
 ```
 
 ```javascript
 var instructor = "Tony";
-let pm = "Franco";
+let pm = "Franco"; //no tiene hoisting
+
+//block scope
 if (true) {
     var instructor = "The Flash";
     let pm = "Reverse Flash";
