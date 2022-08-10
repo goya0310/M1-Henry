@@ -1,3 +1,18 @@
+String.prototype.repeatify = function(num){
+    if(num>0){
+      let cont = 0;
+      let arr = '';
+      while(cont<num){
+        arr += this;
+        cont ++;
+      }
+      return arr;
+    }
+    return '';
+  }
+console.log('hola'.repeatify(3));
+
+
 class Shape {
     constructor(type){
         this.type = type;
