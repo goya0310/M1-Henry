@@ -73,6 +73,16 @@ class Triangle extends Shape {
 Probá tu solución con el siguiente código:
 
 ```javascript
+function Circle(radio) {
+  this.raido = radio;
+  this.getPerimeter = function() {return 3.14 * radio ** 2}
+}
+
+Circle.prototype = new Shape(
+  'Circle',
+  function(){return this.type;
+  });
+  
 > var c = new Circle(2);
 > c instanceof Circle
 // true

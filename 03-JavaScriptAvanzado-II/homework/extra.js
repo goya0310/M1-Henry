@@ -13,27 +13,30 @@ String.prototype.repeatify = function(num){
 console.log('hola'.repeatify(3));
 
 
-class Shape {
-    constructor(type){
-        this.type = type;
-    }
-    getType = (type) => this.type;
-}
-class Triangle extends Shape {
-    constructor(a, b, c, type){
-        super(type);
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        this.type = 'triangulo';
-    }
-    getPerimeter = (a, b, c) => this.a + this.b + this.c ;
-    getArea = (base, altura) => (base*altura)/2;
-}
+function Shape(type, getType) {
+    this.type = type;
+    this.getType = getType;
+  }
+  
+  function Triangle(a,b,c) {
+    this.lado1 =a;
+    this.lado2 =b;
+    this.lado3 =c;
+  }
+  
+  Triangle.prototype = new Shape(
+    "Triangle", 
+    function(){return this.type;
+    });
+  
+  
+  Triangle.prototype.getPerimeter = function() {
+    return this.lado1 + this.lado2 + this.lado3;
+  }
 
 
 var t = new Triangle(1, 2, 3);
- t instanceof Triangle
+t instanceof Triangle
 // true
  Shape.prototype.isPrototypeOf(t);
 // true
